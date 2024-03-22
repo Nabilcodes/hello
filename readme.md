@@ -14,3 +14,6 @@ There was some addition to the function handle_connection, which was
 1. A response variable that holds the success message’s data. he write_all method on stream takes a &[u8] and sends those bytes directly down the connection.Because the write_all operation could fail, we use unwrap on any error result.
 2. Added fs to the use statement to bring the standard library’s filesystem module into scope.
 3. Used format! to add the file’s contents as the body of the success response. To ensure a valid HTTP response, we add the Content-Length header which is set to the size of our response body, in this case the size of hello.html.
+
+![image](https://github.com/Nabilcodes/hello/assets/71275597/800a45b1-ea18-4634-a48d-e4a37b7445d9)
+
