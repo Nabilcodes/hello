@@ -36,5 +36,27 @@ Refactoring was made by only determining the calue fo the status line and file n
 now the request handling was done using match.
 if the endpoint /sleep was called, sleep would occur before returning hello.html.
 
+### COMMIT 4 REFLECTION NOTES
+
+> How a thread pool works
+
+a thread pool is used to hold a finite number of thread.
+
+threadpool can be used in practical purpose as opposed to the idea of spawning up to infinite number of thread which is prone to DoS attack.
+
+An implementation of a threadpool may be written in another file, for example a rust file named lib.
+we can then import the threadpool via use in the main file.
+
+A threadpool implementation may consist of the function new and execute, corresponding to the implementation of thread::spawn.
+
+in the new() method, we obviously need some structure to store the threads we're going to make.
+
+in this implementation, we don't directly uses thread, but it was wrapped by a newly introduced data structure named Worker thath serve as a waiter for the code which execute it till the end.
+The storage for the threads then become the storage for the workers. Let's call this structure Workers.
+
+next thing to do was implementing sender and receiver mechanism using the library mpsc. because some workers may need to own a single receiver, we need to add the type arc and mutual exclusion (Mutex) to 
+make sure that at one particular time, one worker will only get one job.
+
+
 
 
