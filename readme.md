@@ -28,5 +28,3 @@ There was some addition to the function handle_connection, which was
 
 There are a lot of repetition takes place : reading files and writing contents.
 Refactoring was made by only determining the calue fo the status line and file name in the if else block.
-
-
